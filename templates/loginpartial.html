@@ -1,0 +1,21 @@
+{% if user %}
+<div class="hidden">
+    <form id="logoutForm" action="\logout" method="post"
+          class="navbar-form navbar-right">
+    </form>
+</div>
+
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="\">{{ user.email }}</a></li>
+    <li>
+        <a href="javascript:document.getElementById('logoutForm').submit()">Exit</a>
+    </li>
+</ul>
+
+{% else %}
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="\signup">Registration</a></li>
+    <li><a href="\login">Login</a></li>
+</ul>
+
+{% endif %}
