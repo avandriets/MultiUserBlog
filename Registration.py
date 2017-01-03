@@ -63,9 +63,14 @@ class Register(Signup):
     def done(self):
         # make sure the user doesn't already exist
         u = User.by_name(self.username)
+
+        params = dict(username=self.username,
+                      email=self.email)
+
         if u:
-            msg = 'That user already exists.'
-            self.render('signup-form.html', error_username=msg)
+            params['is_username_errors'] = True
+            params['username_error'] = "That user already exists."
+            self.render('signup-form.html', **params)
         else:
             u = User.register(self.username, self.password, self.email)
             u.put()
