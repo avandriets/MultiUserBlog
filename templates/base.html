@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ site_name }}</title>
 
-    <link rel="stylesheet" href="static/css/bootstrap.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -23,15 +25,21 @@
         </div>
 
         <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/blog/newpost">New post</a></li>
+            </ul>
             {% include "loginpartial.html" %}
         </div>
-  </div>
+    </div>
 </nav>
 
-{% block content %}
-{% endblock %}
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
 
-<script type="text/javascript" src="static/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.js"></script>
 
 </body>
 </html>

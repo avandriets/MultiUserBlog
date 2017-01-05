@@ -1,7 +1,6 @@
 import random
 import hashlib
 from string import letters
-
 from google.appengine.ext import db
 
 

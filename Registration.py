@@ -17,9 +17,10 @@ def valid_email(email):
 
 class Signup(BaseHandler):
     def get(self):
-        template_values = {
-        }
-        self.render("signup-form.html", **template_values)
+        if not self.user:
+            self.render("signup-form.html")
+        else:
+            self.redirect('/welcome')
 
     def post(self):
         have_error = False
@@ -76,4 +77,4 @@ class Register(Signup):
             u.put()
 
             self.login(u)
-            self.redirect('/blog')
+            self.redirect('/welcome')

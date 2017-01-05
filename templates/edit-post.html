@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post">
+
+    {% if is_errors %}
+    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign"
+                              aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        {{ error }}
+    </div>
+    <div>
+        <a href="/blog/{{ p.key().id() }}">back to post</a>
+    </div>
+    {% else %}
+
+    <form class="col-md-8" method="post">
+        <h4>Edit post</h4>
+        <hr/>
+        {% if edit_error %}
+        <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign"
+                              aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            {{ edit_error }}
+        </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="id_subject">Subject</label>
+            <input class="form-control" id="id_subject" type="text"
+                   name="subject"
+                   value="{{subject}}"/>
+        </div>
+        <div class="form-group">
+            <label for="id_content">Blog</label>
+            <textarea class="form-control" id="id_content" name="content"
+                      rows="8">{{content}}</textarea>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                <input name="save" type="submit" value="Save"
+                       class="btn btn-primary"/>
+                <input name="cancel" type="submit" value="Cancel"
+                       class="btn btn-default"/>
+                <input name="blog_id" type="hidden" value="{{ p.key().id() }}"/>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+</form>
+
+{% endblock %}

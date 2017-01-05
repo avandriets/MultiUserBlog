@@ -1,0 +1,10 @@
+<section>
+    <div class="row">
+        <a class="col-xs-6"
+           href="/blog/?user_id={{c.author.key().id()}}">{{c.author.name}}</a>
+
+        <p class="col-xs-6 text-right">
+            <small>{{c.created.strftime("%b %d, %Y")}}</small></p>
+    </div>
+    <p>{{c._render_text | safe}}</p>
+</section>

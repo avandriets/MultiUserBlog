@@ -1,26 +1,34 @@
 import webapp2
+
 from BaseHandler import BaseHandler
+from BlogFrontPage import BlogFrontPage
+from DeletePost import DeletePost
+from EditPost import EditPost
 from Login import Login
 from Logout import Logout
+from NewPost import NewPost
+from PostLike import PostLike
+from PostPage import PostPage
 from Registration import Register
-from Utility import SITE_NAME
+from Welcome import Welcome
 
 
 class MainPage(BaseHandler):
     def get(self):
-        template_values = {
-            'site_name': SITE_NAME,
-            'is_authenticated': False,
-        }
-        self.render("main_page.html", **template_values)
-
-    def post(self):
-        pass
+        self.render("main_page.html")
 
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/login', Login),
     ('/logout', Logout),
-    ('/signup', Register)
+    ('/signup', Register),
+    ('/blog/newpost', NewPost),
+    ('/blog/?', BlogFrontPage),
+    ('/blog/([0-9]+)', PostPage),
+    ('/welcome', Welcome),
+    ('/blog/delete-post', DeletePost),
+    ('/blog/edit-post', EditPost),
+    ('/blog/like', PostLike),
+
 ], debug=True)

@@ -2,59 +2,44 @@
 
 {% block content %}
 
-<div class="container">
+<form class="form-horizontal" method="post">
 
-    <div class="row">
-        <div class="col-md-8">
-            <section id="loginForm">
-                <form action="" method="post" class="form-horizontal"
-                      id="login_form">
-
-                    <h4>Login</h4>
-                    <hr/>
-                    {% if is_errors %}
-                    <!--<p class="validation-summary-errors">{{ login_error }}</p>-->
-                    <div class="alert alert-danger" role="alert">
+    <h4>Login</h4>
+    <hr/>
+    {% if is_errors %}
+    <!--<p class="validation-summary-errors">{{ login_error }}</p>-->
+    <div class="alert alert-danger" role="alert">
                         <span class="glyphicon glyphicon-exclamation-sign"
                               aria-hidden="true"></span>
-                        <span class="sr-only">Error:</span>
-                        {{ login_error }}
-                    </div>
-                    {% endif %}
+        <span class="sr-only">Error:</span>
+        {{ login_error }}
+    </div>
+    {% endif %}
 
-                    <div class="form-group">
-                        <label for="id_username"
-                               class="col-md-2 control-label">User name
-                        </label>
-                        <div class="col-md-10">
-                            <input id="id_username" type="text" name="username"
-                                   value="{{username}}"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_password"
-                               class="col-md-2 control-label">Password
-                        </label>
-                        <div class="col-md-10">
-                            <input id="id_password" type="password"
-                                   name="password"
-                                   value=""/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="hidden" name="next" value="/"/>
-                            <input type="submit" value="Login"
-                                   class="btn btn-default"/>
-                        </div>
-                    </div>
-                </form>
-            </section>
-        </div>
+    <div class="form-group">
+        <label for="id_username" class="col-md-2 control-label">User name
+        </label>
         <div class="col-md-4">
-            <section id="socialLoginForm"></section>
+            <input class="form-control" id="id_username" type="text" name="username"
+                   value="{{username}}"/>
         </div>
     </div>
-</div>
+    <div class="form-group">
+        <label for="id_password"
+               class="col-md-2 control-label">Password
+        </label>
+        <div class="col-md-4">
+            <input class="form-control" id="id_password" type="password"
+                   name="password"
+                   value=""/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Login"
+                   class="btn btn-default"/>
+        </div>
+    </div>
+</form>
 
 {% endblock %}

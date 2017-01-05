@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for p in posts %}
+<section class="row">
+    <div class="col-sm-12 col-lg-8">
+        {{ p.render_short() | safe }}
+        <a href="/blog/{{ p.key().id() }}">detail ...</a>
+        <hr>
+    </div>
+</section>
+{% endfor %}
+
+{% endblock %}
