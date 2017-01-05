@@ -1,5 +1,7 @@
+"""
+Main dispatcher module
+"""
 import webapp2
-
 from BaseHandler import BaseHandler
 from BlogFrontPage import BlogFrontPage
 from DeletePost import DeletePost
@@ -14,10 +16,12 @@ from Welcome import Welcome
 
 
 class MainPage(BaseHandler):
+    """Main page handler"""
     def get(self):
         self.render("main_page.html")
 
 
+# routes
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/login', Login),

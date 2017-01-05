@@ -1,15 +1,16 @@
-from google.appengine.ext import db
+"""
+Front Page module
+"""
 from BaseHandler import BaseHandler
 from Post import Post
 from User import User
 
 
 class BlogFrontPage(BaseHandler):
+    """Front page class"""
     def get(self):
-
-
+        """ GET method to render front page with posts list"""
         user_id = self.request.get('user_id', None)
-
         if user_id is not None:
             user = User.by_id(int(user_id))
 
