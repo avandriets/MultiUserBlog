@@ -11,6 +11,7 @@ class DeletePost(BaseHandler):
     Delete post render class provide methods to show interface for deleting
     post from db
     """
+
     def post(self):
         """POST method to show delete page and manage deleting process"""
 
@@ -39,7 +40,8 @@ class DeletePost(BaseHandler):
             # check if user if owner of post
             if post.owner.key() != self.user.key():
                 param["is_errors"] = True
-                param["error"] = "You cannot delete this post, you are not owner!"
+                param[
+                    "error"] = "You cannot delete this post, you are not owner!"
 
                 self.render("delete-post.html", **param)
             else:
@@ -53,4 +55,3 @@ class DeletePost(BaseHandler):
                     pass
                 else:
                     self.render("delete-post.html", **param)
-

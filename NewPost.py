@@ -7,6 +7,7 @@ from Post import Post, blog_key
 
 class NewPost(BaseHandler):
     """NewPost manage class"""
+
     def get(self):
         """GET method to show newpost form"""
 

@@ -8,6 +8,7 @@ from User import User
 
 class BlogFrontPage(BaseHandler):
     """Front page class"""
+
     def get(self):
         """ GET method to render front page with posts list"""
         user_id = self.request.get('user_id', None)
@@ -18,5 +19,5 @@ class BlogFrontPage(BaseHandler):
         else:
             posts = Post.all().order('-created')
 
-        context = dict(posts=posts,)
+        context = dict(posts=posts, )
         self.render("blog_front_page.html", **context)

@@ -83,6 +83,7 @@ class Signup(BaseHandler):
 
 class Register(Signup):
     """Child signup class that implements methods for crating user """
+
     def done(self):
         # make sure the user doesn't already exist
         u = User.by_name(self.username)

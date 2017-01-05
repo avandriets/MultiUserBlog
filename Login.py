@@ -7,6 +7,7 @@ from BaseHandler import BaseHandler
 
 class Login(BaseHandler):
     """Login handler class to manage user login"""
+
     def get(self):
         """to show login method form"""
         self.render('login-form.html')

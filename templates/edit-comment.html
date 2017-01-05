@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post">
+
+    {% if permission_error %}
+    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign"
+                              aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        {{ permission_error }}
+    </div>
+    <div>
+        <a href="/blog/{{ p.key().id() }}">back to post</a>
+    </div>
+    {% else %}
+
+    <form class="col-md-8" method="post">
+        <h4>Edit comment</h4>
+        <hr/>
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign"
+                              aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+                <label for="id_content">Enter your comment</label>
+                <textarea class="form-control" id="id_content" name="body"
+                          rows="3">{{body}}</textarea>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                <input name="save" type="submit" value="Save"
+                       class="btn btn-primary"/>
+                <input name="cancel" type="submit" value="Cancel"
+                       class="btn btn-default"/>
+                <input name="blog_id" type="hidden" value="{{ p.key().id() }}"/>
+                <input name="comment_id" type="hidden"
+                       value="{{ c.key().id() }}"/>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+</form>
+
+{% endblock %}

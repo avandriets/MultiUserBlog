@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if is_errors %}
+<div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign"
+                              aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    {{ error }}
+</div>
+<div>
+    <a href="/blog/{{ p.key().id() }}">back to post</a>
+</div>
+{% else %}
+<form method="post">
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <h4>Delete comment ?</h4>
+            <br>
+            <input name="yes" type="submit" value="Delete"
+                   class="btn btn-primary"/>
+            <input name="no" type="submit" value="Cancel"
+                   class="btn btn-default"/>
+            <input name="blog_id" type="hidden" value="{{ p.key().id() }}"/>
+            <input name="comment_id" type="hidden" value="{{ c.key().id() }}"/>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+
+{% endblock %}

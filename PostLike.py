@@ -9,6 +9,7 @@ from Post import blog_key
 
 class PostLike(BaseHandler):
     """Post liking handler class"""
+
     def post(self):
         """handle POST like request"""
 
@@ -34,7 +35,7 @@ class PostLike(BaseHandler):
         # check if user already likes this post
         set_like_already = False
         for acc in likes_list:
-            if acc.author.key() ==self.user.key():
+            if acc.author.key() == self.user.key():
                 set_like_already = True
 
         # prepare params for render page
@@ -52,6 +53,6 @@ class PostLike(BaseHandler):
             else:
                 # add like to db
                 n_l = Like(parent=like_key(), post=post,
-                              author=self.user.key())
+                           author=self.user.key())
                 n_l.put()
                 self.redirect('/blog/{}'.format(post_id))

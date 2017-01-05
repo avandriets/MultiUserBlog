@@ -2,9 +2,12 @@
 Main dispatcher module
 """
 import webapp2
+
 from BaseHandler import BaseHandler
 from BlogFrontPage import BlogFrontPage
+from DeleteComment import DeleteComment
 from DeletePost import DeletePost
+from EditComment import EditComment
 from EditPost import EditPost
 from Login import Login
 from Logout import Logout
@@ -17,6 +20,7 @@ from Welcome import Welcome
 
 class MainPage(BaseHandler):
     """Main page handler"""
+
     def get(self):
         self.render("main_page.html")
 
@@ -34,5 +38,6 @@ app = webapp2.WSGIApplication([
     ('/blog/delete-post', DeletePost),
     ('/blog/edit-post', EditPost),
     ('/blog/like', PostLike),
-
+    ('/blog/comment/edit-comment', EditComment),
+    ('/blog/comment/delete-comment', DeleteComment),
 ], debug=True)

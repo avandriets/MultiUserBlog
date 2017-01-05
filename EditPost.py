@@ -10,6 +10,7 @@ class EditPost(BaseHandler):
     """
     Class provide tools to interact user with DB by html page
     """
+
     def post(self):
         """method to handle edit post action show page and save or discard
         changes"""

@@ -4,7 +4,40 @@
            href="/blog/?user_id={{c.author.key().id()}}">{{c.author.name}}</a>
 
         <p class="col-xs-6 text-right">
-            <small>{{c.created.strftime("%b %d, %Y")}}</small></p>
+            <small>{{c.created.strftime("%b %d, %Y")}}</small>
+        </p>
     </div>
     <p>{{c._render_text | safe}}</p>
+
+    <div class="row">
+        <form class="col-md-1" action="/blog/comment/delete-comment"
+              method="post">
+            <div class="form-group">
+                <input name="comment_id" type="hidden"
+                       value="{{ c.key().id() }}"/>
+
+                <input name="blog_id" type="hidden"
+                       value="{{ c.post.key().id() }}"/>
+
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-trash "></span>
+                </button>
+                <!--<input type="submit" value="Delete" class="btn btn-danger"/>-->
+            </div>
+        </form>
+        <form class="col-md-1" action="/blog/comment/edit-comment"
+              method="post">
+            <div class="form-group">
+                <input name="comment_id" type="hidden"
+                       value="{{ c.key().id() }}"/>
+
+                <input name="blog_id" type="hidden"
+                       value="{{ c.post.key().id() }}"/>
+                <!--<input type="submit" value="Edit" class="btn btn-default"/>-->
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </div>
+        </form>
+    </div>
 </section>
