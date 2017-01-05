@@ -18,24 +18,6 @@ indexes:
 
 - kind: Post
   properties:
-  - name: author=
-  - name: created
-    direction: desc
-
-- kind: Post
-  properties:
-  - name: author==
-  - name: created
-    direction: desc
-
-- kind: Post
-  properties:
   - name: owner
-  - name: created
-    direction: desc
-
-- kind: Post
-  properties:
-  - name: owner=
   - name: created
     direction: desc
