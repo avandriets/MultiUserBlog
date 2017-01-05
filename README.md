@@ -16,5 +16,4 @@ When developing locally, you can use dev_appserver.py to run a copy of your
 app on your own computer, and access it at http://localhost:8080/.
 
 ## Live version of site
-Project available in internet [Multi User Blog](https://multi-user-blog-153820
-.appspot.com)
+Project available in internet [Multi User Blog](https://multi-user-blog-153820.appspot.com)
